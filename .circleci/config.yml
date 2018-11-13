@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - checkout
-      - run: pip install -r tasks/requirements.txt
+      - run: sudo pip install -r tasks/requirements.txt
       - run: tasks/make_html.sh
       - store_test_results:
           path: test-results
