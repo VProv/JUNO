@@ -5,12 +5,13 @@ jobs:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.6.1
-      steps:
-        - run: pip install ~/tasks/requirements.txt
-        - run: ~/tasks/make_html.sh
-        - store_test_results:
-            path: test-results
-        - store_artifacts:
-            path: test-results
-            destination: test-results
+
+    steps:
+      - run: pip install ~/tasks/requirements.txt
+      - run: ~/tasks/make_html.sh
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+          destination: test-results
 
