@@ -6,11 +6,11 @@ jobs:
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.6.1
 
-    working_directory: ~/tasks
+    working_directory: ~/JUNO
 
     steps:
-      - run: pip install -r requirements.txt
-      - run: make_html.sh
+      - run: pip install -r ./tasks/requirements.txt
+      - run: ./tasks/make_html.sh
       - store_test_results:
           path: test-results
       - store_artifacts:
