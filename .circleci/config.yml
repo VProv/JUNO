@@ -1,0 +1,14 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/tasks
+      docker:
+        - image: circle/python:3.6.4
+    steps:
+      - run: pip install ~/tasks/requirements.txt
+      - run: ~/tasks/make_html.sh
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+
