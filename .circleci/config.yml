@@ -9,7 +9,7 @@ jobs:
     working_directory: ~/tasks
 
     steps:
-      - run: pip install requirements.txt
+      - run: pip install -r requirements.txt
       - run: make_html.sh
       - store_test_results:
           path: test-results
