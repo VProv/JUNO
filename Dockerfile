@@ -1,22 +1,17 @@
-FROM jupyter/scipy-notebook:cf6258237ff9
-
-# Basic
-ENV NB_USER dockprov
-ENV NB_UID 1001
-ENV HOME /home/${NB_USER}
-
-COPY . ${HOME}
-USER root
+FROM python:3.7-slim
+# install the notebook package
+RUN pip install --no-cache --upgrade pip && \
+    pip install --no-cache notebook
 
 RUN pip install -r ~/tasks/requirements.txt
-RUN pip install --no-cache-dir notebook==5.*
+# create user with a home directory
+ARG NB_USER
+ARG NB_UID
+ENV USER ${NB_USER}
+ENV HOME /home/${NB_USER}
 
 RUN adduser --disabled-password \
     --gecos "Default user" \
     --uid ${NB_UID} \
     ${NB_USER}
-
-RUN chown -R ${NB_UID} ${HOME}
-USER ${NB_USER}
 WORKDIR ${HOME}
-#Start
