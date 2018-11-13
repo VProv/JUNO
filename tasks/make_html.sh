@@ -1,1 +1,1 @@
-jupyter nbconvert --execute test.ipynb
+jupyter nbconvert --execute ./test.ipynb
