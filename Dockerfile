@@ -4,8 +4,8 @@ RUN pip install --no-cache --upgrade pip && \
     pip install --no-cache notebook
 
 # create user with a home directory
-ARG NB_USER jovian
-ARG NB_UID 10001
+ARG NB_USER
+ARG NB_UID
 ENV USER ${NB_USER}
 ENV HOME /home/${NB_USER}
 
