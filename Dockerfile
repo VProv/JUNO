@@ -3,7 +3,6 @@ FROM python:3.7-slim
 RUN pip install --no-cache --upgrade pip && \
     pip install --no-cache notebook
 
-RUN pip install -r ~/tasks/requirements.txt
 # create user with a home directory
 ARG NB_USER
 ARG NB_UID
@@ -15,3 +14,5 @@ RUN adduser --disabled-password \
     --uid ${NB_UID} \
     ${NB_USER}
 WORKDIR ${HOME}
+
+RUN pip install -r ~/tasks/requirements.txt
