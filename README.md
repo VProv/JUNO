@@ -4,4 +4,4 @@
 [![CircleCI](https://circleci.com/gh/VProv/JUNO.svg?style=svg)](https://circleci.com/gh/VProv/JUNO)
 
 
-[Link](https://www.kaggle.com/vprovv/sample-kernel?scriptVersionId=7388456) to the sample kaggle kernel: 
+[Link](https://kaggle.com/vprovv/sample-kernel?scriptVersionId=7389264) to the sample kaggle kernel (Полная версия отображается только если нажать edit notebook) 
