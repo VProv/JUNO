@@ -2,3 +2,5 @@ numpy
 matplotlib
 sklearn
 jupyter
+pandas
+kaggle

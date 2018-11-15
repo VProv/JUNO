@@ -12,6 +12,7 @@ jobs:
       - checkout
       - run: sudo pip install -r tasks/requirements.txt
       - run: bash ./make_html.sh
+      - run: bash ./run_kaggle.sh
       - store_test_results:
           path: test-results
       - store_artifacts:
