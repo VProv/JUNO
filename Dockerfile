@@ -21,6 +21,7 @@ RUN chown -R ${NB_UID} ${HOME}
 RUN pip install -r ~/tasks/requirements.txt
 RUN apt-get update && apt-get install -y \
         zip \
-        unzip 
+        unzip \
+        libhdf5-serial-dev
 
 USER ${NB_USER}
