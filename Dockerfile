@@ -22,9 +22,11 @@ RUN chown -R ${NB_UID} ${HOME}
 RUN apt-get update && apt-get install -y \
         zip \
         unzip 
-
-RUN apt-get -y install libhdf5-dev
-RUN pip install tables
+        
+RUN apt-get update
+RUN apt-get -y install hdf5-devel lzo-devel bzip2-devel
+RUN pip install git+git://github.com/pytables/pytables@develop
+RUN python -c "import tables; tables.test()"
 
 RUN pip install -r ~/tasks/requirements.txt
 
