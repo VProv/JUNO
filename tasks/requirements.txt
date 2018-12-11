@@ -6,4 +6,3 @@ pandas
 kaggle
 seaborn
 wget
-tables
