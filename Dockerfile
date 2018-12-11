@@ -18,20 +18,13 @@ WORKDIR ${HOME}
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
-RUN pip install -r ~/tasks/requirements.txt
+
 RUN apt-get update && apt-get install -y \
         zip \
-        unzip 
-        
-RUN apk add --no-cache \
-            --allow-untrusted \
-            --repository \
-             http://dl-3.alpinelinux.org/alpine/edge/testing \
-            hdf5 \
-            hdf5-dev && \
-    apk add --no-cache \
-        build-base
-RUN pip install --no-cache-dir --no-binary :all: tables h5py
-RUN apk --no-cache del build-base
+        unzip \
+        libhdf5-serial-dev
+
+
+RUN pip install -r ~/tasks/requirements.txt
 
 USER ${NB_USER}
