@@ -1,4 +1,8 @@
 # JUNO
+## Binder:
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VProv/JUNO/master)
+
 ## Badge
 
 [![CircleCI](https://circleci.com/gh/VProv/JUNO.svg?style=svg)](https://circleci.com/gh/VProv/JUNO)
