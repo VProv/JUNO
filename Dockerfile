@@ -21,9 +21,10 @@ RUN chown -R ${NB_UID} ${HOME}
 
 RUN apt-get update && apt-get install -y \
         zip \
-        unzip \
-        libhdf5-serial-dev
+        unzip 
 
+RUN apt-get -y install libhdf5-dev
+RUN pip install tables
 
 RUN pip install -r ~/tasks/requirements.txt
 
