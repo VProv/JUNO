@@ -4,7 +4,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VProv/JUNO/master)
 
 ## Presentation with EDA.
-[![Presentation](https://docs.google.com/presentation/d/1xkUcGYa1kbC_HG8zVFi98Ij4PpGwxbvVHZCYF4r4pfU/edit?usp=sharing)
+[Presentation](https://docs.google.com/presentation/d/1xkUcGYa1kbC_HG8zVFi98Ij4PpGwxbvVHZCYF4r4pfU/edit?usp=sharing)
 
 ## Badge
 
