@@ -42,8 +42,22 @@ def get_data_2dprojection(lpmt_hits, spmt_hits, pos, true_info, edge_size=150, u
     data_lpmt = np.zeros((n, edge_size+1, edge_size+1, channels))
     event_to_id = {x:y for y, x in enumerate(sorted(merged_hits['event'].unique()))}
     print("Starting cycle...")
-    for event, mol0i, mol1i in tqdm_notebook(zip(merged_hits['event'], merged_hits['mol0i'], merged_hits['mol1i'])):
-        data_lpmt[event_to_id[event]][mol0i, mol1i] += 1
+    if time == False:
+        for event, mol0i, mol1i in tqdm_notebook(zip(merged_hits['event'], merged_hits['mol0i'], merged_hits['mol1i'])):
+            data_lpmt[event_to_id[event]][mol0i, mol1i] += 1
+    else:
+        for event, mol0i, mol1i, time in tqdm_notebook(zip(merged_hits['event'], merged_hits['mol0i'], merged_hits['mol1i'], merged_hits['hitTime'])):
+            data_lpmt[event_to_id[event]][mol0i, mol1i][0] += 1
+            cur_min = data_lpmt[event_to_id[event]][mol0i, mol1i][1]
+            cur_max = data_lpmt[event_to_id[event]][mol0i, mol1i][2]
+            if cur_min == 0:
+                data_lpmt[event_to_id[event]][mol0i, mol1i][1] = time
+            if cur_max == 0:
+                data_lpmt[event_to_id[event]][mol0i, mol1i][2] = time
+            if cur_min > time:
+                data_lpmt[event_to_id[event]][mol0i, mol1i][1] = time
+            if cur_max < time:
+                data_lpmt[event_to_id[event]][mol0i, mol1i][2] = time
     return data_lpmt, event_to_id
 
 
