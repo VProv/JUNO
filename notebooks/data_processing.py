@@ -36,8 +36,14 @@ def get_data_2dprojection(lpmt_hits, spmt_hits, pos, true_info, edge_size=150, u
     if use_spmt:
         lpmt_hits = pd.concat([lpmt_hits, spmt_hits])
     merged_hits = pd.merge(lpmt_hits, pos, left_on='pmtID', right_on='pmt_id')
-    merged_hits['mol0i'] = round(merged_hits['mol0'] / (pos['mol0'].max() - pos['mol0'].min()) * edge_size).astype(int)
-    merged_hits['mol1i'] = round(merged_hits['mol1'] / (pos['mol1'].max() - pos['mol1'].min()) * edge_size).astype(int)
+    
+    mol0min = -160000
+    mol0max = 160000
+    mol1min = -390000
+    mol1max = 390000
+    
+    merged_hits['mol0i'] = round((mol0min + merged_hits['mol0']) / (mol0max - mol0min) * edge_size).astype(int)
+    merged_hits['mol1i'] = round((mol1min + merged_hits['mol1']) / (mol1max - mol1min) * edge_size).astype(int)
     n = len(lpmt_hits['event'].unique())
     data_lpmt = np.zeros((n, edge_size+1, edge_size+1, channels))
     event_to_id = {x:y for y, x in enumerate(sorted(merged_hits['event'].unique()))}
